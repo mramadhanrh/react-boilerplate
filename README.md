@@ -41,4 +41,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## 🌠 Styleguide
 
-I oftenly use Airbnb styleguide that you could refer to this [url](https://github.com/airbnb/javascript/tree/master/react)
+I often use Airbnb styleguide that you could refer to this [url](https://github.com/airbnb/javascript/tree/master/react)
