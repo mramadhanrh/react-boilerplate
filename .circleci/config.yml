@@ -102,7 +102,7 @@ jobs:
 
 workflows:
   version: 2
-  Pipelines:
+  build_test_deploy:
     jobs:
       - Dependencies
       - Security:
