@@ -96,7 +96,9 @@ jobs:
 
             -Dsonar.projectVersion=${CIRCLE_BRANCH} \
 
-            -Dsonar.login=${SONAR_AUTH_TOKEN}
+            -Dsonar.login=${SONAR_AUTH_TOKEN} \
+
+            -Dsonar.branch.name=${CIRCLE_BRANCH}
 
 workflows:
   version: 2
@@ -113,6 +115,3 @@ workflows:
           requires:
             - Security
             - Quality
-          filters:
-            branches:
-              only: master
