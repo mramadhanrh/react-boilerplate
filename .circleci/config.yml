@@ -77,7 +77,7 @@ jobs:
           command: >
             export SONAR_SCANNER_OPTS="${SONAR_SCANNER_OPTS}"
 
-            /tmp/sonar-scanner/bin/sonar-scanner -X \
+            eval /tmp/sonar-scanner/bin/sonar-scanner -X \
             -Dsonar.projectKey=${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME} \
 
             -Dsonar.organization=${CIRCLE_PROJECT_USERNAME} \
