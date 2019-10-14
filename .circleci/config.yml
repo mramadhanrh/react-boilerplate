@@ -68,18 +68,16 @@ jobs:
           name: Install Sonarqube scanner
           command: >
 
-            wget
-            https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
-            unzip sonar-scanner-cli-3.2.0.1227-linux.zip && \
-            rm sonar-scanner-cli-3.2.0.1227-linux.zip ** \
-            mkdir /tmp/sonar-scanner && \
-            mv sonar-scanner-cli-3.2.0.1227-linux /tmp/sonar-scanner
+            wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.0.0.1744-linux.zip
+                 unzip sonar-scanner-cli-4.0.0.1744-linux.zip
+                 rm sonar-scanner-cli-4.0.0.1744-linux.zip
+                 mv sonar-scanner-4.0.0.1744-linux /tmp/sonar-scanner
       - run:
           name: Run Sonarqube scanner
           command: >
             export SONAR_SCANNER_OPTS="${SONAR_SCANNER_OPTS}"
 
-            eval ./tmp/sonar-scanner/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner
+            eval ./tmp/sonar-scanner/bin/sonar-scanner
             -Dsonar.projectKey=${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME} \
 
             -Dsonar.organization=${CIRCLE_PROJECT_USERNAME} \
