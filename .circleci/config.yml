@@ -97,8 +97,7 @@ jobs:
             -Dsonar.branch.name=${CIRCLE_BRANCH}
       - run:
           name: Remove Sonarqube Scanner Cache
-          command: >
-            rm -rf sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner
+          command: rm -rf sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner
 
 workflows:
   version: 2
