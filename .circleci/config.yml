@@ -71,18 +71,13 @@ jobs:
             wget
             https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
 
-            unzip sonar-scanner-cli-3.2.0.1227-linux.zip
+            unzip sonar-scanner-cli-3.2.0.1227-linux.zip -d /sonar-scanner
       - run:
           name: Run Sonarqube scanner
           command: >
             export SONAR_SCANNER_OPTS="${SONAR_SCANNER_OPTS}"
 
-            mkdir /root/.sonar-scanner && \
-            mv sonar-scanner-3.2.0.1227-linux/* /root/.sonar-scanner
-
-            ls
-
-            eval /root/.sonar-scanner/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner
+            eval ./sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner
             -Dsonar.projectKey=${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME} \
 
             -Dsonar.organization=${CIRCLE_PROJECT_USERNAME} \
@@ -100,9 +95,6 @@ jobs:
             -Dsonar.login=${SONAR_AUTH_TOKEN} \
 
             -Dsonar.branch.name=${CIRCLE_BRANCH}
-      - run:
-          name: Remove Sonarqube Scanner Cache
-          command: rm -rf sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner
 
 workflows:
   version: 2
