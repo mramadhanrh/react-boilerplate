@@ -109,10 +109,10 @@ workflows:
       - Quality:
           requires:
             - Dependencies
-          # - Analysis:
-          #     requires:
-          #       - Security
-          #       - Quality
+      - Analysis:
+          requires:
+            - Security
+            - Quality
           filters:
             branches:
               only: master
