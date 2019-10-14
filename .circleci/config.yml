@@ -77,12 +77,8 @@ jobs:
           command: >
             export SONAR_SCANNER_OPTS="${SONAR_SCANNER_OPTS}"
 
-            echo ${SONAR_AUTH_TOKEN}
-
-            echo ${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
-
             eval ./sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner
-            -Dsonar.projectKey=${CIRCLE_PROJECT_REPONAME} \
+            -Dsonar.projectKey=${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME} \
 
             -Dsonar.organization=${CIRCLE_PROJECT_USERNAME} \
 
@@ -96,7 +92,9 @@ jobs:
 
             -Dsonar.projectVersion=${CIRCLE_BRANCH} \
 
-            -Dsonar.login=${SONAR_AUTH_TOKEN}
+            -Dsonar.login=${SONAR_AUTH_TOKEN} \
+
+            -Dsonar.branch.name=${CIRCLE_BRANCH}
 
 workflows:
   version: 2
@@ -113,6 +111,3 @@ workflows:
           requires:
             - Security
             - Quality
-          filters:
-            branches:
-              only: master
