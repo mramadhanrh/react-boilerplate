@@ -77,7 +77,12 @@ jobs:
           command: >
             export SONAR_SCANNER_OPTS="${SONAR_SCANNER_OPTS}"
 
-            eval ./sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner
+            mkdir /root/.sonar-scanner && \
+            mv sonar-scanner-3.2.0.1227-linux/* /root/.sonar-scanner
+
+            ls
+
+            eval /root/.sonar-scanner/sonar-scanner-3.2.0.1227-linux/bin/sonar-scanner
             -Dsonar.projectKey=${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME} \
 
             -Dsonar.organization=${CIRCLE_PROJECT_USERNAME} \
