@@ -115,3 +115,9 @@ workflows:
           requires:
             - Security
             - Quality
+<<<<<<< HEAD
+=======
+          filters:
+            branches:
+              only: master
+>>>>>>> master
